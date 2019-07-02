@@ -1,0 +1,15 @@
+[Unit]
+Description=Reverse SSH Connect
+After=network.target
+
+[Service]
+Type=simple
+Environment="CLIENT_PORT=10000"
+Environment="REMOTE_HOST=127.0.0.1"
+Environment="REMOTE_PORT=2200"
+Environment="IDENTITY=/path/to/ssh.key"
+ExecStart=/usr/bin/ssh -N -R ${CLIENT_PORT}:localhost:22 -p ${REMOTE_PORT} -i ${IDENTITY}
+
+
+[Install]
+WantedBy=multi-user.target

@@ -32,3 +32,10 @@ echo -e "${green}Setting up reverse SSH${NC}"
 cp ~/pentest_dropbox/ssh.et.service /lib/systemd/system/
 chmod +x /lib/systemd/system/ssh.et.service
 systemctl enable /lib/systemd/system/ssh.et.service
+
+# Setting up VNC resolution
+echo -e "${green}Setting VNC resolution${NC}"
+echo "framebuffer_width=1280" | sudo tee -a /boot/config.txt
+echo "framebuffer_width=720" | sudo tee -a /boot/config.txt
+
+reboot

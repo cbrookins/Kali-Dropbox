@@ -28,15 +28,25 @@ echo "${green}Upgrading OS${NC}"
 apt-get update && apt-get upgrade -y
 clear
 
+# Installing packages
+echo "${green}Installing Packages${NC}"
+apt-get install -y xserver-xorg-video-dummy > /dev/null
+
+# VNC Pre req
+echo "${green}Dummy Xorg${NC}"
+cp ~/Kali-Dropbox/xorg.conf /usr/share/X11/xorg.conf.d/
+
 # Setting up reverse SSH
 echo "${green}Setting up reverse SSH${NC}"
-cp ~/pentest_dropbox/ssh.et.service /lib/systemd/system/
+cp ~/Kali-Dropbox/ssh.et.service /lib/systemd/system/
 chmod +x /lib/systemd/system/ssh.et.service
 systemctl enable /lib/systemd/system/ssh.et.service
 
-# Setting up VNC resolution
-echo "${green}Setting VNC resolution${NC}"
+# Setting up Pi resolution
+echo "${green}Setting Pi resolution${NC}"
 echo "framebuffer_width=1280" | sudo tee -a /boot/config.txt
 echo "framebuffer_width=720" | sudo tee -a /boot/config.txt
+
+startx &
 
 reboot

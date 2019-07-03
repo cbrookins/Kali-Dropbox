@@ -35,11 +35,11 @@ apt-get install -y xserver-xorg-video-dummy > /dev/null
 
 # VNC Pre req
 echo "${green}Dummy Xorg${NC}"
-cp $scriptDir/xorg.conf /usr/share/X11/xorg.conf.d/
+cp ~/kali-dropbox/xorg.conf /usr/share/X11/xorg.conf.d/
 
 # Setting up reverse SSH
 echo "${green}Setting up reverse SSH${NC}"
-cp $scriptDir/ssh.et.service /lib/systemd/system/
+cp ~/kali-dropbox/ssh.et.service /lib/systemd/system/
 chmod +x /lib/systemd/system/ssh.et.service
 systemctl enable /lib/systemd/system/ssh.et.service
 

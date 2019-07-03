@@ -17,6 +17,7 @@ read -p "Press enter to continue"
 
 
 # Script Variables
+scriptDir='dirname $0'
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[1;33m'
@@ -34,11 +35,11 @@ apt-get install -y xserver-xorg-video-dummy > /dev/null
 
 # VNC Pre req
 echo "${green}Dummy Xorg${NC}"
-cp ~/Kali-Dropbox/xorg.conf /usr/share/X11/xorg.conf.d/
+cp $scriptDir/xorg.conf /usr/share/X11/xorg.conf.d/
 
 # Setting up reverse SSH
 echo "${green}Setting up reverse SSH${NC}"
-cp ~/Kali-Dropbox/ssh.et.service /lib/systemd/system/
+cp $scriptDir/ssh.et.service /lib/systemd/system/
 chmod +x /lib/systemd/system/ssh.et.service
 systemctl enable /lib/systemd/system/ssh.et.service
 

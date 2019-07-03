@@ -31,7 +31,7 @@ clear
 
 # Installing packages
 echo "${green}Installing Packages${NC}"
-apt-get install -y xserver-xorg-video-dummy > /dev/null
+apt-get install -y xserver-xorg-video-dummy x11vnc > /dev/null
 
 # VNC Pre req
 echo "${green}Dummy Xorg${NC}"

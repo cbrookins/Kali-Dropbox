@@ -24,7 +24,7 @@ NC='\033[0m' # No Color
 # Upgrading OS
 clear
 echo -e "${green}Upgrading OS${NC}"
-apt-get update > /dev/null && apt-get upgrade -y > /dev/null
+apt-get update && apt-get upgrade -y
 clear
 
 # Setting up reverse SSH

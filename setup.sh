@@ -4,7 +4,8 @@
 # 
 #
 # Description:  Set up Kali as a dropbox for reverse SSH access
-# Requirements: Command & control server with SSHd listening for connections
+# Requirements: C&C server with SSHd listening for connections
+#               Private key for C&C
 #
 #
 ###
